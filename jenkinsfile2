@@ -3,19 +3,19 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'make package'
+                echo "this is build stage"
             }
         }
         stage('Test') {
             steps {
-                sh 'make check'
+                echo "this is test stage"
             }
         }
         stage('Deploy') {
             when { tag "release-*" }
             steps {
                 echo 'Deploying only because this commit is tagged...'
-                sh 'make deploy'
+               
             }
         }
     }
